@@ -11,25 +11,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin{
-  double _scale = 1.0;
+  double _height = 150.h;
+  double _width = 250.h;
+
   late AnimationController _controller;
+  late Animation<double> _fadeAnimation;
 
   @override
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
+    _controller =AnimationController(vsync: this,duration: Duration(seconds: 3),);
+    _fadeAnimation =CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _controller.forward();
+
+     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushNamed(RouteManager.homeScreen);
     });
-
-    _controller =AnimationController(vsync: this,duration: Duration(seconds: 1),);
-
-    Timer(Duration(seconds: 2),(){
-      setState(() {
-        _scale=1.5;
-      });
-      _controller.forward();
-    });
+   
   }
 
   @override
@@ -45,7 +44,10 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         body: Container(
           color: Color(0xFF027A8B),
           child: Center(
-            child: Image.asset("public/images/globalmed.logo.png"),
+            child: FadeTransition(
+              opacity: _fadeAnimation,
+              child: Image.asset("public/images/globalmed.logo.png",
+              height: _height,width: _width,color: Colors.white,),),
           ),
         ),
       ),
