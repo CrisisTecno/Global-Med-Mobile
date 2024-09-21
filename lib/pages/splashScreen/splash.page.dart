@@ -10,7 +10,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin{
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   double _height = 150.h;
   double _width = 250.h;
 
@@ -21,14 +22,16 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    _controller =AnimationController(vsync: this,duration: Duration(seconds: 3),);
-    _fadeAnimation =CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    );
+    _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _controller.forward();
 
-     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushNamed(RouteManager.homeScreen);
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushNamed(RouteManager.onbordingScreen1);
     });
-   
   }
 
   @override
@@ -46,8 +49,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           child: Center(
             child: FadeTransition(
               opacity: _fadeAnimation,
-              child: Image.asset("public/images/globalmed.logo.png",
-              height: _height,width: _width,color: Colors.white,),),
+              child: Image.asset(
+                "public/images/logos/globalmed.logo.png",
+                height: _height,
+                width: _width,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
       ),
