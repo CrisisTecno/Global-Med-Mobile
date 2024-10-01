@@ -35,40 +35,16 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      // final userCredential =
-      //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-      //   email: emailController.text.trim(),
-      //   password: passwordController.text.trim(),
-      // );
-      // print('Usuario inició sesión: ${userCredential.user}');
-
-      // QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-      //     .collection('Usuario')
-      //     .where('email', isEqualTo: emailController.text.trim())
-      //     .get();
-      // if (querySnapshot.docs.isNotEmpty) {
-      //   print("el usuario existe");
-      //   final userProvider =
-      //       Provider.of<GlobalMedProviderUser>(context, listen: false);
-      //   var doc = querySnapshot.docs.first;
-      //   userProvider.setUserData(
-      //       doc.id, querySnapshot.docs.first.data() as Map<String, dynamic>);
-      // } else {
-      //   print("el usuario no existe");
-      // }
-      // ;
-
-      //´por defecto
       final userCredential =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'tecn0crisis0@gmail.com',
-        password: 'SCristhian69*',
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
       print('Usuario inició sesión: ${userCredential.user}');
 
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection('Usuario')
-          .where('email', isEqualTo: 'tecn0crisis0@gmail.com')
+          .where('email', isEqualTo: emailController.text.trim())
           .get();
       if (querySnapshot.docs.isNotEmpty) {
         print("el usuario existe");
@@ -80,6 +56,30 @@ class _LoginScreenState extends State<LoginScreen> {
       } else {
         print("el usuario no existe");
       }
+      ;
+
+      //´por defecto
+      // final userCredential =
+      //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //   email: 'tecn0crisis0@gmail.com',
+      //   password: 'SCristhian69*',
+      // );
+      // print('Usuario inició sesión: ${userCredential.user}');
+
+      // QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+      //     .collection('Usuario')
+      //     .where('email', isEqualTo: 'tecn0crisis0@gmail.com')
+      //     .get();
+      // if (querySnapshot.docs.isNotEmpty) {
+      //   print("el usuario existe");
+      //   final userProvider =
+      //       Provider.of<GlobalMedProviderUser>(context, listen: false);
+      //   var doc = querySnapshot.docs.first;
+      //   userProvider.setUserData(
+      //       doc.id, querySnapshot.docs.first.data() as Map<String, dynamic>);
+      // } else {
+      //   print("el usuario no existe");
+      // }
       Navigator.of(context).pushNamed(RouteManager.homeScreen);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
