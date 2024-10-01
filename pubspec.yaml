@@ -68,6 +68,7 @@ flutter:
     - public/images/logos/
     - public/images/medics/
     - public/assets/icons/
+    - public/assets/navbar/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

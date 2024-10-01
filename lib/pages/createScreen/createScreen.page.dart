@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:global_med/pages/homeScreen/home.page.dart';
 import 'package:global_med/pages/loginScreen/loginScreen.page.dart';
 import 'package:global_med/themes/themes.dart';
 import 'package:global_med/utils/Size/sizer.dart';
@@ -66,7 +67,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(RouteManager.homeScreen);
                   },
                   child: Container(
                     padding:

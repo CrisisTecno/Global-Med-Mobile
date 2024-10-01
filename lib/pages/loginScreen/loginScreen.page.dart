@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:global_med/pages/homeScreen/home.page.dart';
 import 'package:global_med/state/provider/globalmed.user.provider.dart';
 import 'package:global_med/themes/themes.dart';
 import 'package:global_med/utils/routes/routes.dart';
@@ -79,7 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
       } else {
         print("el usuario no existe");
       }
-
       Navigator.of(context).pushNamed(RouteManager.homeScreen);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -122,13 +122,21 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Positioned(
-              bottom: -100.h,
-              right: -100.h,
+              bottom: -200.h,
+              right: -200.h,
               child: Container(
                 height: 400.h,
                 width: 400.h,
                 decoration: BoxDecoration(
-                  color: secondary.withOpacity(0.1),
+                  gradient: RadialGradient(
+                    center: Alignment.center,
+                    radius: 0.6,
+                    colors: [
+                      secondary.withOpacity(0.8),
+                      Color(0xFFFFFFFF),
+                    ],
+                    stops: [0.3, 0.8],
+                  ),
                   borderRadius: BorderRadius.all(
                     Radius.circular(400.h),
                   ),
