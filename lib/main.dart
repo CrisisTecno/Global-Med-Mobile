@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:global_med/firebase_options.dart';
 import 'package:global_med/pages/pages.dart';
-import 'package:global_med/state/provider/globalmed.provider.dart';
+import 'package:global_med/state/provider/globalmed.user.provider.dart';
 import 'package:global_med/utils/Size/utils.dart';
 import 'package:global_med/utils/utils.dart';
 import 'package:provider/provider.dart';
@@ -17,9 +17,9 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => GlobalMedProvider())],
-      child: MyApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => GlobalMedProviderUser())
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,3 +1,10 @@
+import 'package:flutter/material.dart';
+
+const primary = Color(0xFF3A5FEB);
+const secondary = Color(0xFF027A8B);
+const tree = Color(0xffEB8202);
+
+
 // import 'package:flutter/material.dart';
 
 // class AppTheme {

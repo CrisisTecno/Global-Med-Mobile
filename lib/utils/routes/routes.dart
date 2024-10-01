@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:global_med/pages/loginScreen/loginScreen.page.dart';
 import 'package:global_med/pages/pages.dart';
 
 class RouteManager {
   static const String splashsScreen = "/splash";
   static const String homeScreen = "/home";
+  static const String loginScreen = "/login";
+  static const String createScreen = "/create";
   static const String onbordingScreen1 = "/onbording1";
   static const String onbordingScreen2 = "/onbording2";
   static const String onbordingScreen3 = "/onbording3";
@@ -14,6 +17,10 @@ class RouteManager {
     switch (settings.name) {
       case splashsScreen:
         return MaterialPageRoute(builder: (context) => SplashScreen());
+      case loginScreen:
+        return MaterialPageRoute(builder: (context) => LoginScreen());
+      case createScreen:
+        return MaterialPageRoute(builder: (context) => CreateAccountScreen());
       case homeScreen:
         return MaterialPageRoute(builder: (context) => HomeScreen());
       case onbordingScreen1:

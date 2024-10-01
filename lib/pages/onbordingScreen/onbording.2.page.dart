@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_med/themes/themes.dart';
 import 'package:global_med/utils/utils.dart';
 import 'package:global_med/widgets/widgets.dart';
 
@@ -17,7 +18,7 @@ class Onbording2Screen extends StatelessWidget {
                 height: 400.h,
                 width: 400.h,
                 decoration: BoxDecoration(
-                  color: Color(0xFF027A8B),
+                  color: secondary,
                   borderRadius: BorderRadius.all(
                     Radius.circular(400.h),
                   ),
@@ -31,7 +32,7 @@ class Onbording2Screen extends StatelessWidget {
                 height: 400.h,
                 width: 400.h,
                 decoration: BoxDecoration(
-                  color: Color(0xFF027A8B).withOpacity(0.1),
+                  color: secondary.withOpacity(0.1),
                   borderRadius: BorderRadius.all(
                     Radius.circular(400.h),
                   ),

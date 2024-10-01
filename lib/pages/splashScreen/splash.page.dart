@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:global_med/themes/themes.dart';
 import 'package:global_med/utils/utils.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen>
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Color(0xFF027A8B),
+          color: secondary,
           child: Center(
             child: FadeTransition(
               opacity: _fadeAnimation,
