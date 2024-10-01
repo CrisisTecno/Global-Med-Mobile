@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // print('Usuario inició sesión: ${userCredential.user}');
 
       // QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-      //     .collection('Users')
+      //     .collection('Usuario')
       //     .where('email', isEqualTo: emailController.text.trim())
       //     .get();
       // if (querySnapshot.docs.isNotEmpty) {
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
       print('Usuario inició sesión: ${userCredential.user}');
 
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-          .collection('Users')
+          .collection('Usuario')
           .where('email', isEqualTo: 'tecn0crisis0@gmail.com')
           .get();
       if (querySnapshot.docs.isNotEmpty) {
@@ -147,10 +147,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 30.h,
                         ),
                         TextOP(
-                          message: 'Bienvenido de',
+                          message: 'BIENVENIDO DE',
                         ),
                         TextOP(
-                          message: 'Vuelta',
+                          message: 'VUELTA',
                         ),
                         SizedBox(
                           height: 10.h,
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             labelText: 'Correo',
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: primary, // Color del borde
+                                color: secondary, // Color del borde
                                 width: 1.0, // Ancho del borde
                               ),
                             ),
@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             labelText: 'Contraseña',
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: primary, // Color del borde
+                                color: secondary, // Color del borde
                                 width: 1.0, // Ancho del borde
                               ),
                             ),
@@ -297,19 +297,25 @@ class _LoginScreenState extends State<LoginScreen> {
                               "No tienes una cuenta? ",
                               style: TextStyle(
                                 fontFamily: "Sofa",
-                                fontSize: 15.h,
+                                fontSize: 18.h,
                                 height: 1.1,
                                 fontWeight: FontWeight.w100,
                               ),
                             ),
-                            Text(
-                              "Presiona Aqui",
-                              style: TextStyle(
-                                fontFamily: "Acme",
-                                fontSize: 15.h,
-                                height: 1.1,
-                                color: primary,
-                                fontWeight: FontWeight.bold,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(RouteManager.createScreen);
+                              },
+                              child: Text(
+                                "Presiona Aqui",
+                                style: TextStyle(
+                                  fontFamily: "Acme",
+                                  fontSize: 18.h,
+                                  height: 1.1,
+                                  color: secondary,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
@@ -362,8 +368,8 @@ class TextLeyend extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style:
-          TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: primary),
+      style: TextStyle(
+          fontSize: 15, fontWeight: FontWeight.bold, color: secondary),
       textAlign: TextAlign.start,
     );
   }
